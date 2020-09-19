@@ -5,7 +5,7 @@ resource "aws_security_group" "sample-app-sg" {
   name        = "${var.prefix}-sg"
   description = "${var.prefix}-sg"
   vpc_id      = "${aws_vpc.sample-app-vpc.id}"
-  
+
   ingress {
     from_port   = 80
     to_port     = 80
@@ -30,7 +30,7 @@ resource "aws_security_group" "sample-app-alb-sg" {
   name        = "${var.prefix}-alb-sg"
   description = "${var.prefix}-alb-sg"
   vpc_id      = "${aws_vpc.sample-app-vpc.id}"
-  
+
   ingress {
     from_port   = 80
     to_port     = 80
@@ -55,7 +55,7 @@ resource "aws_security_group" "sample-app-db-sg" {
   name        = "${var.prefix}-db-sg"
   description = "${var.prefix}-db-sg"
   vpc_id      = "${aws_vpc.sample-app-vpc.id}"
-  
+
   ingress {
     from_port   = 3306
     to_port     = 3306

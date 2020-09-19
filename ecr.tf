@@ -34,7 +34,7 @@ EOF
 
 # Nginx
 resource "aws_ecr_repository" "sample-app-nginx" {
-  name                 = "${var.prefix}-nginx"
+  name = "${var.prefix}-nginx"
   image_tag_mutability = "MUTABLE"
 
   image_scanning_configuration {

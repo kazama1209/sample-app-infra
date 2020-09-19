@@ -1,11 +1,11 @@
 # RDS（データベース）
 
 resource "aws_db_subnet_group" "sample-app-db-subnet" {
-  name        = "${var.prefix}-db-subnet"
-  subnet_ids  = ["${aws_subnet.sample-app-public-subnet-1a.id}", "${aws_subnet.sample-app-public-subnet-1c.id}"]
-  
+  name       = "${var.prefix}-db-subnet"
+  subnet_ids = ["${aws_subnet.sample-app-public-subnet-1a.id}", "${aws_subnet.sample-app-public-subnet-1c.id}"]
+
   tags = {
-      Name = "${var.prefix}-db-subnet"
+    Name = "${var.prefix}-db-subnet"
   }
 }
 
@@ -28,6 +28,6 @@ resource "aws_db_instance" "sample-app-db" {
   publicly_accessible = true
   skip_final_snapshot = true
 
-  vpc_security_group_ids  = ["${aws_security_group.sample-app-db-sg.id}"]
-  db_subnet_group_name    = "${aws_db_subnet_group.sample-app-db-subnet.name}"
+  vpc_security_group_ids = ["${aws_security_group.sample-app-db-sg.id}"]
+  db_subnet_group_name   = "${aws_db_subnet_group.sample-app-db-subnet.name}"
 }
